@@ -1,0 +1,43 @@
+body {
+  height: 100vh;
+  min-height: 100vh;
+  transition: color 0.5s, background-color 0.5s;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    pointer-events: none;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    background: url(#{$path}bg/main.png) no-repeat right center;
+    background-size: cover;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  padding-left: 32px;
+  padding-right: 32px;
+  margin: auto;
+}
+
+#app {
+  height: inherit;
+}
+
+.btn__primary {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  height: 56px;
+  color: #C38E63;
+  border: 2px solid;
+  padding: 16px 80px 12px;
+}
