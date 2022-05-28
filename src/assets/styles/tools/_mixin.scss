@@ -1,0 +1,11 @@
+@use "sass:math";
+$vw-viewport: 992;
+/*@function get-vw($font){
+  $vw-context: $vw-viewport * 0.01 * 1px;
+  @return math.div($font, $vw-context) * 1vw;
+}*/
+
+@function get-vw($target) {
+  $vw-context: $vw-viewport * 0.01 * 1px;
+  @return math.div($target, $vw-context) * 1vw;
+}

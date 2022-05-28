@@ -23,9 +23,10 @@ $navWidth: 230px;
 @import "vendors/bootstrap/reboot";
 
 /* Project styles */
+@import "tools/_mixin.scss";
 @import "base/_fonts.scss";
 @import "base/_base.scss";
 
 @import "components/_nav.scss";
-@import "components/_main.scss";
 @import "components/_header.scss";
+@import "components/_main.scss";

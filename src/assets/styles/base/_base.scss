@@ -20,6 +20,10 @@ body {
   }
 }
 
+img {
+  max-width: 100%;
+}
+
 .container {
   width: 100%;
   margin: auto;
@@ -27,6 +31,11 @@ body {
   @media (min-width: 992px) {
     padding-left: 32px;
     padding-right: 32px;
+  }
+
+  @media (max-width: 991px) {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   @media (min-width: 1741px) {
