@@ -1,7 +1,3 @@
-<script setup>
-import TheWelcome from '/src/components/TheWelcome.vue'
-</script>
-
 <template>
   <main class="main container">
     <div class="main__name">СИДОРОВ СЕМЁН</div>

@@ -1,11 +1,22 @@
 @use "sass:math";
-$vw-viewport: 992;
-/*@function get-vw($font){
-  $vw-context: $vw-viewport * 0.01 * 1px;
-  @return math.div($font, $vw-context) * 1vw;
-}*/
 
-@function get-vw($target) {
-  $vw-context: $vw-viewport * 0.01 * 1px;
+@function get-vw($target, $maxBreakpoint) {
+  $vw-context: $maxBreakpoint * 0.01 * 1px;
   @return math.div($target, $vw-context) * 1vw;
+}
+
+@mixin iphonex-css {
+  bottom: constant(safe-area-inset-bottom);
+  bottom: env(safe-area-inset-bottom);
+
+  @supports (bottom: constant(safe-area-inset-top)) or (bottom: env(safe-area-inset-top)) {
+    padding-top: constant (safe-area-inset-top); // высота панели навигации + строка состояния 88 пикселей
+    padding-top: env (safe-area-inset-top); // высота панели навигации + строка состояния 88 пикселей
+    padding-left: constant (safe-area-inset-left); // Если экран не вертикальный, он равен 0
+    padding-left: env (safe-area-inset-left); // Если экран не вертикальный, он равен 0
+    padding-right: constant (safe-area-inset-right); // Если экран не вертикальный, он равен 0
+    padding-right: env (safe-area-inset-right); // Если экран не вертикальный, он равен 0
+    padding-bottom: constant (safe-area-inset-bottom); // высота нижней дуги 34px
+    padding-bottom: env (safe-area-inset-bottom); // высота нижней дуги 34px
+  }
 }

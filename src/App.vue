@@ -3,15 +3,12 @@ import {ref} from 'vue'
 import BehanceIcon from '/src/components/icons/IconBehance.vue'
 import DribbleIcon from '/src/components/icons/IconDribble.vue'
 import LogoComponent from '/src/components/LogoLogoComponent.vue'
-//import {RouterLink, RouterView} from 'vue-router'
-//import HelloWorld from '/src/components/HelloWorld.vue'
 
 const logoAltText = ref('Ui Ux design')
 const isActiveMenu = ref(false)
 
 function toggleMenu() {
   isActiveMenu.value = !isActiveMenu.value
-  console.log('click')
 }
 </script>
 

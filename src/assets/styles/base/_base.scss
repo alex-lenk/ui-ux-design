@@ -59,16 +59,27 @@ img {
 
 .btn__primary {
   font-weight: 500;
-  font-size: 16px;
   line-height: 1;
-  height: 56px;
   color: $primary;
   border: 2px solid;
-  padding: 16px 80px 12px;
   transition: color .2s ease-in-out, border-color .2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover,
   &:active {
     color: #714B2D;
+  }
+
+  @media (min-width: 576px) {
+    padding: 16px 80px 12px;
+    font-size: 16px;
+    height: 56px;
+  }
+  @media (max-width: 575px) {
+    font-size: 14px;
+    height: 44px;
+    padding: 0 46px;
   }
 }
