@@ -1,7 +1,6 @@
 body {
   height: 100vh;
   min-height: 100vh;
-  transition: color 0.5s, background-color 0.5s;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,6 +21,10 @@ body {
 
 img {
   max-width: 100%;
+}
+
+.text__nowrap {
+  white-space: nowrap;
 }
 
 .container {

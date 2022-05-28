@@ -17,31 +17,47 @@ function toggleMenu() {
 
 <template>
   <header class="header">
-    <LogoComponent class-logo="header__logo" :alt="logoAltText" />
+    <LogoComponent class-logo="header__logo" :alt="logoAltText"/>
 
-    <div class="header__toggle" @click="toggleMenu"></div>
+    <div class="header__toggle" :class="{'header__toggle-open': isActiveMenu}" @click="toggleMenu">
+      <span class="header__toggle-decor"></span>
+    </div>
   </header>
 
   <nav class="nav" :class="{nav__open: isActiveMenu}" @click.self="toggleMenu">
     <div class="nav__inner">
-      <LogoComponent class-logo="nav__logo" :alt="logoAltText" />
+      <LogoComponent class-logo="nav__logo" :alt="logoAltText"/>
 
       <ul class="nav__menu">
-        <li class="nav__menu-item">
-          <RouterLink class="nav__menu-link nav__link" to="/">Главная</RouterLink>
-        </li>
-        <li class="nav__menu-item">
-          <RouterLink class="nav__menu-link nav__link" to="/portfolio">Портфолио</RouterLink>
-        </li>
-        <li class="nav__menu-item">
-          <RouterLink class="nav__menu-link nav__link" to="/skill">Скиллсет</RouterLink>
-        </li>
-        <li class="nav__menu-item">
-          <RouterLink class="nav__menu-link nav__link" to="/about">Обо мне</RouterLink>
-        </li>
-        <li class="nav__menu-item">
-          <RouterLink class="nav__menu-link nav__link" to="/contacts">Контакты</RouterLink>
-        </li>
+        <router-link to="/" custom v-slot="{ href, isActive }">
+          <li class="nav__menu-item" :class="[isActive && 'nav__menu-active']">
+            <a class="nav__link" :href="href">Главная</a>
+          </li>
+        </router-link>
+
+        <router-link to="/portfolio" custom v-slot="{ href, isActive }">
+          <li class="nav__menu-item" :class="[isActive && 'nav__menu-active']">
+            <a class="nav__link" :href="href">Портфолио</a>
+          </li>
+        </router-link>
+
+        <router-link to="/skill" custom v-slot="{ href, isActive }">
+          <li class="nav__menu-item" :class="[isActive && 'nav__menu-active']">
+            <a class="nav__link" :href="href">Скиллсет</a>
+          </li>
+        </router-link>
+
+        <router-link to="/about" custom v-slot="{ href, isActive }">
+          <li class="nav__menu-item" :class="[isActive && 'nav__menu-active']">
+            <a class="nav__link" :href="href">Обо мне</a>
+          </li>
+        </router-link>
+
+        <router-link to="/contacts" custom v-slot="{ href, isActive }">
+          <li class="nav__menu-item" :class="[isActive && 'nav__menu-active']">
+            <a class="nav__link" :href="href">Контакты</a>
+          </li>
+        </router-link>
       </ul>
 
       <div class="nav__social">
@@ -54,8 +70,9 @@ function toggleMenu() {
       </div>
 
       <footer class="nav__footer">
-        ©2017 — 2022<br>
-        ui-ux-design.ru<br>
+        ©2017 — 2022
+        <span class="text__nowrap">ui-ux-design.ru</span>
+        <br>
         права сохранены
       </footer>
     </div>

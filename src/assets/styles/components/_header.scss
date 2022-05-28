@@ -19,19 +19,62 @@
   margin-left: auto;
   display: flex;
   cursor: pointer;
-  transition: background-color .2s ease-in-out;
+  position: relative;
+  transition-duration: 1s;
+}
 
-  &::before {
-    width: 24px;
+.header__toggle-decor {
+  height: 3px;
+  width: 24px;
+  margin: auto;
+  position: relative;
+  background-color: $body-color;
+  transition-duration: .2s;
+  transition-delay: .2s;
+
+  &::before,
+  &::after {
     height: 3px;
-    margin: auto;
+    width: 24px;
+    left: 0;
+    position: absolute;
     background-color: $body-color;
-    box-shadow: 0 -8px 0 $body-color, 0 8px 0 $body-color;
+    transition-duration: .2s;
+    transition: transform .2s, top .2s .2s;
     content: '';
   }
 
-  &:hover {
-    background-color: #222;
+  &::before {
+    top: -8px;
+  }
+
+  &::after {
+    top: 8px;
+  }
+}
+
+.header__toggle-open {
+  .header__toggle-decor {
+    transition-duration: 0.1s;
+    transition-delay: .2s;
+    background: transparent;
+
+    &::before,
+    &::after {
+      top: 0;
+      width: 30px;
+      left: -3px;
+    }
+
+    &::before {
+      transition: top .2s, transform .2s .2s;
+      transform: rotateZ(-45deg);
+    }
+
+    &::after {
+      transition: top 0.4s, transform .2s .2s;
+      transform: rotateZ(45deg);
+    }
   }
 }
 
