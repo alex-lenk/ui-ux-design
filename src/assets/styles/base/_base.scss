@@ -22,10 +22,18 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1280px;
-  padding-left: 32px;
-  padding-right: 32px;
   margin: auto;
+  @media (min-width: 1741px) {
+    max-width: 1280px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  @media (max-width: 1740px) {
+    max-width: 1280px + $navWidth * 2;
+    padding-left: $navWidth + 32;
+    padding-right: $navWidth + 32;
+  }
 }
 
 #app {
@@ -37,7 +45,13 @@ body {
   font-size: 16px;
   line-height: 1;
   height: 56px;
-  color: #C38E63;
+  color: $primary;
   border: 2px solid;
   padding: 16px 80px 12px;
+  transition: color .2s ease-in-out, border-color .2s ease-in-out;
+
+  &:hover,
+  &:active {
+    color: #714B2D;
+  }
 }

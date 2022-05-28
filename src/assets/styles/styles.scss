@@ -11,7 +11,9 @@ $body-color: #E7E7E7;
 $link-decoration: none;
 $link-color: $body-color;
 $link-hover-color: $body-color;
+$primary: #C38E63;
 $path: '/src/assets/img/';
+$navWidth: 230px;
 
 @import "vendors/bootstrap/functions";
 @import "vendors/bootstrap/variables";
@@ -26,7 +28,7 @@ $path: '/src/assets/img/';
 
 
 .nav {
-  width: 230px;
+  width: $navWidth;
   height: 100%;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -129,13 +131,6 @@ $path: '/src/assets/img/';
   align-self: flex-start;
 }
 
-@media (min-width: 2100px) {
-  .main::before {
-    width: 58vw;
-    right: -27vw;
-  }
-}
-
 @media (min-width: 1741px) {
   .main__name {
     margin-bottom: 20px;
@@ -153,7 +148,14 @@ $path: '/src/assets/img/';
   }
 }
 
-@media (max-width: 2099px) {
+@media (min-width: 2100px) {
+  .main::before {
+    width: 58vw;
+    right: -27vw;
+  }
+}
+
+@media (min-width: 1741px) and (max-width: 2099px) {
   .main::before {
     width: 53vw;
     right: -12vw;
@@ -161,6 +163,10 @@ $path: '/src/assets/img/';
 }
 
 @media (max-width: 1740px) {
+  .main::before {
+    width: 53vw;
+    right: 0;
+  }
   .main__name {
     margin-bottom: 1.15vw;
     font-size: 1.15vw;
