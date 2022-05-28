@@ -1,0 +1,41 @@
+.header {
+  width: 100%;
+  height: 70px;
+  padding-left: 32px;
+  display: flex;
+  align-items: center;
+  background-color: #161616;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+
+.header__toggle {
+  width: 88px;
+  height: inherit;
+  margin-left: auto;
+  padding: 0 32px;
+  display: flex;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out;
+
+  &::before {
+    width: 24px;
+    height: 3px;
+    margin: auto;
+    background-color: $body-color;
+    box-shadow: 0 -8px 0 $body-color, 0 8px 0 $body-color;
+    content: '';
+  }
+
+  &:hover {
+    background-color: #222;
+  }
+}
+
+@media (min-width: 1281px) {
+  .header {
+    display: none;
+  }
+}

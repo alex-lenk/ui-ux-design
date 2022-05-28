@@ -23,13 +23,17 @@ body {
 .container {
   width: 100%;
   margin: auto;
-  @media (min-width: 1741px) {
-    max-width: 1280px;
+
+  @media (min-width: 992px) {
     padding-left: 32px;
     padding-right: 32px;
   }
 
-  @media (max-width: 1740px) {
+  @media (min-width: 1741px) {
+    max-width: 1280px;
+  }
+
+  @media (min-width: 1281px) and (max-width: 1740px) {
     max-width: 1280px + $navWidth * 2;
     padding-left: $navWidth + 32;
     padding-right: $navWidth + 32;
@@ -38,6 +42,7 @@ body {
 
 #app {
   height: inherit;
+  overflow: inherit;
 }
 
 .btn__primary {
