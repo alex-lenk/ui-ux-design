@@ -8,10 +8,116 @@
     pointer-events: none;
     bottom: 0;
     position: absolute;
-    z-index: -1;
+    z-index: -2;
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: contain;
+  }
+
+  &::after {
+    content: '';
+    pointer-events: none;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    z-index: -1;
+    background: url(#{$path}bg/main.png) no-repeat right center;
+    background-size: cover;
+  }
+
+  @include media('>=576px') {
+    &::before {
+      background-image: url(#{$path}decor/main-photo.png);
+    }
+  }
+  @include media('>=2100px') {
+    &::before {
+      width: 58vw;
+      right: -27vw;
+    }
+  }
+  @include media('>=1281px') {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    &::before {
+      height: inherit;
+    }
+  }
+  @include media('<=1280px') {
+    padding-top: get-vw(150px, 992);
+
+    &::before {
+      width: 66vw;
+      height: calc(100% - 35px);
+      right: -68px;
+    }
+  }
+  @include media('<=767px') {
+    padding-top: get-vw(170px, 768);
+
+    &::before {
+      width: 100%;
+      height: 100vh;
+      left: 58%;
+      transform: translateX(-50%);
+    }
+  }
+  @include media('<=575px') {
+    padding-top: get-vw(118px, 360);
+
+    &::before {
+      left: 56%;
+      width: 419px;
+      height: 386px;
+      bottom: get-vw(-80px, 360);
+      background-image: url(#{$path}decor/main-photo-m.png);
+    }
+  }
+  @include media('<=340px') {
+    &::before {
+      width: 370px;
+    }
+  }
+
+  @media (min-width: 1281px) and (max-width: 1740px) {
+    &::before {
+      width: 53vw;
+      right: 0;
+    }
+  }
+
+  @media (min-width: 1741px) and (max-width: 2099px) {
+    &::before {
+      width: 53vw;
+      right: -12vw;
+    }
+  }
+
+  @media (max-width: 575px) and (min-height: 730px) and (orientation: portrait) {
+    &::before {
+      bottom: 0;
+    }
+  }
+
+  /* iphone X , XS, 11 Pro, 12 Mini */
+  @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    &::before {
+      bottom: 0;
+    }
+  }
+
+  /* iphone XR, 11 */
+  @media only screen and (min-device-width: 414px) and (max-device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+    &::before {
+      width: 150%;
+      left: 50%;
+      height: 500px;
+      bottom: 0;
+    }
   }
 }
 
@@ -19,70 +125,97 @@
   letter-spacing: .05em;
   color: #888;
   text-transform: uppercase;
-}
 
-.main__title {
-  font-weight: 800;
-}
-
-.main__subtitle {
-  font-weight: 500;
-}
-
-.main__btn {
-  align-self: flex-start;
-}
-
-@media (min-width: 576px) {
-  .main {
-    position: relative;
-
-    &::before {
-      height: inherit;
-      background-image: url(#{$path}decor/main-photo.png);
-    }
-  }
-}
-
-@media (min-width: 992px) {
-  .main {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-}
-
-@media (min-width: 1281px) {
-  .main::before {
-    height: inherit;
-  }
-  .main__name {
+  @include media('>=1281px') {
     margin-top: -82px;
   }
-}
 
-@media (min-width: 1741px) {
-  .main__name {
+  @include media('>=1741px') {
     margin-bottom: 20px;
     font-size: 20px;
     line-height: 32px;
   }
-  .main__title {
+
+  @include media('<=1280px') {
+    //margin-top: 32px;
+    margin-bottom: get-vw(24px, 992);
+    font-size: get-vw(20px, 992);
+    line-height: get-vw(32px, 992);
+  }
+
+  @include media('<=767px') {
+    margin-bottom: get-vw(24px, 768);
+    font-size: get-vw(20px, 768);
+    line-height: get-vw(32px, 768);
+  }
+
+  @include media('<=575px') {
+    margin-bottom: get-vw(8px, 360);
+    font-size: get-vw(16px, 360);
+    line-height: get-vw(24px, 360);
+  }
+}
+
+.main__title {
+  font-weight: 800;
+
+  @include media('>=1741px') {
     font-size: 64px;
     line-height: 72px;
     margin-bottom: 20px;
   }
-  .main__subtitle {
-    margin-bottom: 42px;
-    line-height: 28px;
+
+  @include media('<=1280px') {
+    margin-bottom: get-vw(16px, 992);
+    font-size: get-vw(48px, 992);
+    line-height: get-vw(56px, 992);
+  }
+  @include media('<=767px') {
+    margin-bottom: get-vw(18px, 768);
+    font-size: get-vw(48px, 768);
+    line-height: get-vw(56px, 768);
+  }
+  @include media('<=575px') {
+    margin-bottom: get-vw(8px, 360);
+    font-size: get-vw(24px, 360);
+    line-height: get-vw(32px, 360);
   }
 }
 
-@media (min-width: 2100px) {
-  .main::before {
-    width: 58vw;
-    right: -27vw;
+.main__subtitle {
+  font-weight: 500;
+
+  @include media('>=1741px') {
+    margin-bottom: 42px;
+    line-height: 28px;
   }
+
+  @include media('<=1280px') {
+    margin-bottom: get-vw(40px, 992);
+    font-size: get-vw(16px, 992);
+    line-height: get-vw(28px, 992);
+  }
+  @include media('<=767px') {
+    margin-bottom: get-vw(40px, 768);
+    font-size: get-vw(16px, 768);
+    line-height: get-vw(28px, 768);
+  }
+  @include media('<=575px') {
+    padding-right: 12px;
+    margin-bottom: get-vw(32px, 360);
+    font-size: get-vw(14px, 360);
+    line-height: get-vw(24px, 360);
+  }
+  @include media('>=768px', '<=1280px') {
+    max-width: 50%;
+  }
+  @include media('>=576px', '<=767px') {
+    width: 65%;
+  }
+}
+
+.main__btn {
+  align-self: flex-start;
 }
 
 @media (max-width: 1740px) {
@@ -103,100 +236,9 @@
     }*/
 }
 
-@media (max-width: 1280px) {
-  /*  .main::before {
-      width: 66vw;
-      height: calc(100% - 35px);
-      right: -68px;
-    }
-    .main__name {
-      margin-top: 32px;
-      margin-bottom: get-vw(24px, 360);
-      font-size: get-vw(20px, 360);
-      line-height: get-vw(32px, 360);
-    }
-    .main__title {
-      margin-bottom: get-vw(16px, 360);
-      font-size: get-vw(48px, 360);
-      line-height: get-vw(56px, 360);
-    }
-    .main__subtitle {
-      //max-width: 50%;
-      margin-bottom: get-vw(40px, 360);
-      font-size: get-vw(16px, 360);
-      line-height: get-vw(28px, 360);
-    }*/
-}
 
-@media (max-width: 575px) {
-  .main {
-    padding-top: get-vw(118px, 360);
+/* OLD STYLES */
 
-    &::before {
-      width: get-vw(419px, 360);
-      height: 100vh;
-      left: get-vw(-8px, 360);
-      bottom: get-vw(-80px, 360);
-      background-image: url(#{$path}decor/main-photo-m.png);
-    }
-  }
-  .main__name {
-    margin-bottom: get-vw(8px, 360);
-    font-size: get-vw(16px, 360);
-    line-height: get-vw(24px, 360);
-  }
-  .main__title {
-    margin-bottom: get-vw(8px, 360);
-    font-size: get-vw(24px, 360);
-    line-height: get-vw(32px, 360);
-  }
-  .main__subtitle {
-    padding-right: 12px;
-    margin-bottom: get-vw(32px, 360);
-    font-size: get-vw(14px, 360);
-    line-height: get-vw(24px, 360);
-  }
-}
-
-@media (min-width: 1281px) and (max-width: 1740px) {
-  .main::before {
-    width: 53vw;
-    right: 0;
-  }
-}
-
-@media (min-width: 1741px) and (max-width: 2099px) {
-  .main::before {
-    width: 53vw;
-    right: -12vw;
-  }
-}
-
-@media (max-width: 575px) and (min-height: 740px) {
-  .main::before {
-    width: 160%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-/* iphone X , XS, 11 Pro, 12 Mini */
-@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-  .main::before {
-    width: 150%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-/* iphone XR, 11 */
-@media only screen and (min-device-width: 414px) and (max-device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
-  .main::before {
-    width: 155%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
 
 /* iphone 5 */
 @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
