@@ -47,7 +47,7 @@
       height: inherit;
     }
   }
-  @include media('<=1280px') {
+  @include media('<=768px', '<=1280px') {
     padding-top: get-vw(150px, 992);
 
     &::before {
@@ -56,7 +56,8 @@
       right: -68px;
     }
   }
-  @include media('<=767px') {
+
+  @include media('<=576px', '<=767px') {
     padding-top: get-vw(170px, 768);
 
     &::before {
@@ -103,15 +104,26 @@
     }
   }
 
+  @include media('<=940px', 'landscape') {
+    padding-top: get-vw(110px, 992);
+
+    &::before {
+      width: 63vw;
+      height: calc(100% - 40px);
+      left: 43%;
+      position: fixed;
+    }
+  }
+
   /* iphone X , XS, 11 Pro, 12 Mini */
-  @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
     &::before {
       bottom: 0;
     }
   }
 
   /* iphone XR, 11 */
-  @media only screen and (min-device-width: 414px) and (max-device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+  @media only screen and (min-device-width: 414px) and (max-device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
     &::before {
       width: 150%;
       left: 50%;
@@ -136,14 +148,14 @@
     line-height: 32px;
   }
 
-  @include media('<=1280px') {
-    //margin-top: 32px;
+  @include media('>=768px', '<=1280px') {
+    margin-top: 32px;
     margin-bottom: get-vw(24px, 992);
     font-size: get-vw(20px, 992);
     line-height: get-vw(32px, 992);
   }
 
-  @include media('<=767px') {
+  @include media('>=576px', '<=767px') {
     margin-bottom: get-vw(24px, 768);
     font-size: get-vw(20px, 768);
     line-height: get-vw(32px, 768);
@@ -153,6 +165,12 @@
     margin-bottom: get-vw(8px, 360);
     font-size: get-vw(16px, 360);
     line-height: get-vw(24px, 360);
+  }
+
+  @include media('<=940px', 'landscape') {
+    margin-bottom: get-vw(24px, 992);
+    font-size: get-vw(20px, 992);
+    line-height: get-vw(32px, 992);
   }
 }
 
@@ -165,12 +183,12 @@
     margin-bottom: 20px;
   }
 
-  @include media('<=1280px') {
+  @include media('>=767px', '<=1280px') {
     margin-bottom: get-vw(16px, 992);
     font-size: get-vw(48px, 992);
     line-height: get-vw(56px, 992);
   }
-  @include media('<=767px') {
+  @include media('>=575px', '<=767px') {
     margin-bottom: get-vw(18px, 768);
     font-size: get-vw(48px, 768);
     line-height: get-vw(56px, 768);
@@ -179,6 +197,12 @@
     margin-bottom: get-vw(8px, 360);
     font-size: get-vw(24px, 360);
     line-height: get-vw(32px, 360);
+  }
+
+  @include media('<=940px', 'landscape') {
+    margin-bottom: get-vw(16px, 992);
+    font-size: get-vw(48px, 992);
+    line-height: get-vw(56px, 992);
   }
 }
 
@@ -195,6 +219,7 @@
     font-size: get-vw(16px, 992);
     line-height: get-vw(28px, 992);
   }
+
   @include media('<=767px') {
     margin-bottom: get-vw(40px, 768);
     font-size: get-vw(16px, 768);
@@ -212,10 +237,19 @@
   @include media('>=576px', '<=767px') {
     width: 65%;
   }
+  @include media('<=940px', 'landscape') {
+    margin-bottom: get-vw(40px, 992);
+    font-size: get-vw(16px, 992);
+    line-height: get-vw(28px, 992);
+  }
 }
 
 .main__btn {
   align-self: flex-start;
+
+  @include media('<=940px', 'landscape') {
+    margin-bottom: 32px;
+  }
 }
 
 @media (max-width: 1740px) {
