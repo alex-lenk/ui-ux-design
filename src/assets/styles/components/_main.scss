@@ -2,19 +2,21 @@
   height: inherit;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
 
-  &::before {
+  &::after {
     content: '';
     pointer-events: none;
-    bottom: 0;
-    position: absolute;
-    z-index: -2;
+    //bottom: 0;
+    position: relative;
+    z-index: -1;
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: contain;
   }
 
-  &::after {
+  &::before {
     content: '';
     pointer-events: none;
     bottom: 0;
@@ -22,45 +24,43 @@
     width: 100%;
     height: 100%;
     right: 0;
-    z-index: -1;
+    z-index: -2;
     background: url(#{$path}bg/main.png) no-repeat right center;
     background-size: cover;
   }
 
   @include media('>=576px') {
-    &::before {
+    &::after {
       background-image: url(#{$path}decor/main-photo.png);
     }
   }
   @include media('>=2100px') {
-    &::before {
+    &::after {
       width: 58vw;
       right: -27vw;
     }
   }
   @include media('>=1281px') {
-    display: flex;
     justify-content: center;
-    flex-direction: column;
 
-    &::before {
+    &::after {
       height: inherit;
     }
   }
-  @include media('<=768px', '<=1280px') {
+  @include media('>=768px', '<=1280px') {
     padding-top: get-vw(150px, 992);
 
-    &::before {
+    &::after {
       width: 66vw;
       height: calc(100% - 35px);
       right: -68px;
     }
   }
 
-  @include media('<=576px', '<=767px') {
+  @include media('>=576px', '<=767px') {
     padding-top: get-vw(170px, 768);
 
-    &::before {
+    &::after {
       width: 100%;
       height: 100vh;
       left: 58%;
@@ -70,44 +70,50 @@
   @include media('<=575px') {
     padding-top: get-vw(118px, 360);
 
-    &::before {
-      left: 56%;
-      width: 419px;
-      height: 386px;
-      bottom: get-vw(-80px, 360);
+    &::after {
+      //left: 56%;
+      //height: 386px;
+      //bottom: get-vw(-80px, 360);
+      flex: auto;
+      margin-top: -32px;
+      margin-right: -18vw;
+      width: calc(100% + 32px);
       background-image: url(#{$path}decor/main-photo-m.png);
     }
   }
-  @include media('<=340px') {
-    &::before {
+
+/*  @include media('<=340px') {
+    &::after {
       width: 370px;
     }
-  }
+  }*/
 
   @media (min-width: 1281px) and (max-width: 1740px) {
-    &::before {
+    &::after {
       width: 53vw;
       right: 0;
     }
   }
 
   @media (min-width: 1741px) and (max-width: 2099px) {
-    &::before {
+    &::after {
       width: 53vw;
       right: -12vw;
     }
   }
 
+  /*
   @media (max-width: 575px) and (min-height: 730px) and (orientation: portrait) {
-    &::before {
+    &::after {
       bottom: 0;
     }
   }
+  */
 
   @include media('<=940px', 'landscape') {
     padding-top: get-vw(110px, 992);
 
-    &::before {
+    &::after {
       width: 63vw;
       height: calc(100% - 40px);
       left: 43%;
@@ -117,18 +123,15 @@
 
   /* iphone X , XS, 11 Pro, 12 Mini */
   @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
-    &::before {
-      bottom: 0;
+    &::after {
+      width: 131%;
     }
   }
 
   /* iphone XR, 11 */
   @media only screen and (min-device-width: 414px) and (max-device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
-    &::before {
-      width: 150%;
-      left: 50%;
-      height: 500px;
-      bottom: 0;
+    &::after {
+      width: 131%;
     }
   }
 }
@@ -241,14 +244,6 @@
     margin-bottom: get-vw(40px, 992);
     font-size: get-vw(16px, 992);
     line-height: get-vw(28px, 992);
-  }
-}
-
-.main__btn {
-  align-self: flex-start;
-
-  @include media('<=940px', 'landscape') {
-    margin-bottom: 32px;
   }
 }
 
