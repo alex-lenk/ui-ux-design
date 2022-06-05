@@ -29,3 +29,8 @@ coverage
 
 package-lock.json
 *.iml
+.bash_history
+.cache/
+.ssh/
+public_html/deploy-log.txt
+public_html/deploy.php

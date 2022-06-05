@@ -17,7 +17,7 @@ echo <<<EOT
 <pre>
   o-o    $TITLE
  /\\"/\   v$VERSION
-(`=*=') 
+(`=*=')
  ^---^`-.
 
 
@@ -26,8 +26,7 @@ EOT;
 // Check whether client is allowed to trigger an update
 
 $allowed_ips = array(
-	'207.97.227.', '50.57.128.', '108.171.174.', '50.57.231.', '204.232.175.', '192.30.252.', // GitHub
-	'195.37.139.','193.174.' // VZG
+	'81.26.149.' // VZG
 );
 $allowed = false;
 
@@ -61,7 +60,7 @@ flush();
 $commands = array(
 	'echo $PWD',
 	'whoami',
-	'git pull',
+	'git pull origin main',
 	'git status',
 	'git submodule sync',
 	'git submodule update',
@@ -87,7 +86,7 @@ $log .= "\n";
 
 file_put_contents ('deploy-log.txt',$log,FILE_APPEND);
 
-echo $output; 
+echo $output;
 
 ?>
 </pre>
