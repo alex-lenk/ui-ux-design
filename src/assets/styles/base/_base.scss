@@ -25,12 +25,12 @@ img {
   width: 100%;
   margin: auto;
 
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: 767px) {
     padding-left: 16px;
     padding-right: 16px;
   }
